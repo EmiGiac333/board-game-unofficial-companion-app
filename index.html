@@ -57,15 +57,22 @@
 
     <!-- RUOLI -->
     <div class="roles-panel">
-      <h3>Ruolo giocatore</h3>
-      <label>
-        Seleziona giocatore:
-        <select id="rolePlayerSelect"></select>
-      </label>
-      <button id="showRoleBtn">Mostra ruolo</button>
-      <div id="roleDisplay" class="role-display">-</div>
-      <p class="hint">Passa il dispositivo al giocatore, premi "Mostra ruolo", poi nascondi di nuovo.</p>
-    </div>
+        <h3>Ruolo giocatore</h3>
+
+        <label>
+            Seleziona giocatore:
+            <select id="rolePlayerSelect"></select>
+        </label>
+
+        <div class="buttons-row">
+            <button id="showRoleBtn" class="primary">Mostra ruolo</button>
+            <button id="hideRoleBtn" class="danger hidden">Nascondi ruolo</button>
+        </div>
+
+    <div id="roleDisplay" class="role-display hidden">-</div>
+
+  <p class="hint">Passa il dispositivo al giocatore, fai vedere il ruolo, poi nascondilo.</p>
+</div>
 
     <!-- VOTAZIONE SEGRETA -->
     <h2>Votazione governo (segreta)</h2>
@@ -158,3 +165,4 @@
   <script src="app.js"></script>
 </body>
 </html>
+
