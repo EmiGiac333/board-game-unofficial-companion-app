@@ -512,10 +512,25 @@ startGameBtn.addEventListener("click", () => {
 showRoleBtn.addEventListener("click", () => {
   const idx = parseInt(rolePlayerSelect.value, 10);
   if (isNaN(idx)) return;
+
   const role = state.roles[idx];
   const name = state.players[idx].name;
+
   roleDisplayDiv.textContent = `${name} è: ${role}`;
+  roleDisplayDiv.classList.remove("hidden");
+
+  showRoleBtn.classList.add("hidden");
+  hideRoleBtn.classList.remove("hidden");
 });
+
+hideRoleBtn.addEventListener("click", () => {
+  roleDisplayDiv.textContent = "-";
+  roleDisplayDiv.classList.add("hidden");
+
+  showRoleBtn.classList.remove("hidden");
+  hideRoleBtn.classList.add("hidden");
+});
+
 
 setGovernmentBtn.addEventListener("click", () => {
   const presIdx = parseInt(presidentSelect.value, 10);
@@ -630,3 +645,4 @@ window.addEventListener("load", () => {
     renderNameInputs();
   }
 });
+
