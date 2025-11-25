@@ -1,0 +1,113 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, sans-serif;
+  background: #f5f5f5;
+  margin: 0;
+  padding: 20px;
+}
+
+.hidden {
+  display: none;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.subtitle {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+section {
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+}
+
+button {
+  padding: 10px 14px;
+  margin: 5px 0;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button.primary {
+  background: #0057d8;
+  color: white;
+}
+
+button.danger {
+  background: #e53935;
+  color: white;
+}
+
+.vote-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 4px 0;
+}
+
+.policy-track {
+  display: flex;
+  justify-content: space-between;
+}
+
+.player-pill {
+  padding: 6px 10px;
+  border-radius: 20px;
+  margin: 4px;
+  background: #eee;
+}
+
+.player-pill.alive {
+  border: 1px solid green;
+}
+
+.player-pill.dead {
+  border: 1px solid red;
+  opacity: 0.5;
+}
+
+.role-display {
+  margin-top: 10px;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.info-box {
+  background: #d7e9ff;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.info-box.muted {
+  background: #eee;
+}
+
+.status-box {
+  padding: 10px;
+  border-radius: 5px;
+  background: #fff3cd;
+  border: 1px solid #ffeeba;
+}
+
+.status-box.win-liberal {
+  background: #c8e6c9;
+}
+
+.status-box.win-fascist {
+  background: #ffcdd2;
+}
+
+#logList {
+  max-height: 250px;
+  overflow-y: auto;
+}

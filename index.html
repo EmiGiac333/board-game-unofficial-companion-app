@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Secret Hitler Companion</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <header>
+    <h1>Secret Hitler – Companion</h1>
+    <p class="subtitle">Tracker di partita, votazioni segrete e poteri</p>
+  </header>
+
+  <!-- ================= SETUP ================= -->
+  <section id="setupSection">
+    <h2>Setup Partita</h2>
+
+    <label>Numero giocatori:
+      <select id="playerCount">
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+      </select>
+    </label>
+
+    <div id="playerNamesContainer"></div>
+
+    <button id="randomizeNamesBtn">Compila nomi automaticamente</button>
+    <button id="startGameBtn" class="primary">Inizia Partita</button>
+
+    <p class="hint">
+      I ruoli verranno assegnati casualmente. Poi potrai mostrarli uno alla volta ai giocatori.
+    </p>
+  </section>
+
+  <!-- ================= GIOCO ================= -->
+  <section id="gameSection" class="hidden">
+
+    <div class="top-bar">
+      <div>
+        <strong>Presidente:</strong> <span id="currentPresident">-</span><br>
+        <strong>Cancelliere:</strong> <span id="currentChancellor">-</span>
+      </div>
+      <div>
+        <strong>Elezioni fallite:</strong> <span id="electionTracker">0</span>/3<br>
+        <strong>Fase:</strong> <span id="phaseLabel">Elezione</span>
+      </div>
+    </div>
+
+    <h2>Giocatori</h2>
+    <div id="playersList"></div>
+
+    <!-- RUOLI -->
+    <div class="roles-panel">
+      <h3>Ruolo giocatore</h3>
+      <label>
+        Seleziona giocatore:
+        <select id="rolePlayerSelect"></select>
+      </label>
+      <button id="showRoleBtn">Mostra ruolo</button>
+      <div id="roleDisplay" class="role-display">-</div>
+      <p class="hint">Passa il dispositivo al giocatore, premi "Mostra ruolo", poi nascondi di nuovo.</p>
+    </div>
+
+    <!-- VOTAZIONE SEGRETA -->
+    <h2>Votazione governo (segreta)</h2>
+
+    <div class="vote-panel">
+      <p>
+        Scegli Presidente e Cancelliere, poi avvia la votazione segreta:
+        il device passa in mano a ogni giocatore, uno alla volta.
+      </p>
+
+      <div class="gov-select">
+        <label>Presidente:
+          <select id="presidentSelect"></select>
+        </label>
+
+        <label>Cancelliere:
+          <select id="chancellorSelect"></select>
+        </label>
+
+        <button id="setGovernmentBtn" class="primary">Imposta governo</button>
+      </div>
+
+      <button id="startSecretVoteBtn" class="primary">Inizia votazione segreta</button>
+
+      <div id="secretVotePanel" class="hidden">
+        <h3>Sta votando:</h3>
+        <p><strong><span id="currentVoterName">-</span></strong></p>
+        <p class="hint">
+          Passa il dispositivo a questo giocatore. Solo lui deve vedere lo schermo.
+        </p>
+        <div class="buttons-row">
+          <button id="voteJaBtn" class="primary">Ja</button>
+          <button id="voteNeinBtn" class="danger">Nein</button>
+        </div>
+        <p id="votingProgress" class="hint"></p>
+      </div>
+
+      <button id="revealVoteResultBtn" class="primary hidden">Mostra risultato votazione</button>
+
+      <div id="voteResult" class="info-box">Nessuna votazione ancora.</div>
+    </div>
+
+    <!-- POLITICHE -->
+    <h2>Tracciamento Politiche</h2>
+
+    <div class="policy-track">
+      <div><strong>Liberali:</strong> <span id="liberalPolicies">0</span>/5</div>
+      <div><strong>Fascisti:</strong> <span id="fascistPolicies">0</span>/6</div>
+    </div>
+
+    <button id="enactLiberalBtn">Promulga politica Liberale</button>
+    <button id="enactFascistBtn">Promulga politica Fascista</button>
+
+    <div id="specialPowerBox" class="info-box muted">
+      Nessun potere speciale attivo.
+    </div>
+
+    <!-- ESECUZIONE -->
+    <h2>Azione esecutiva (Esecuzione)</h2>
+    <label>
+      Giocatore:
+      <select id="executePlayerSelect"></select>
+    </label>
+    <button id="executePlayerBtn">Esegui</button>
+    <p class="hint">Se il giocatore eseguito è Hitler, i Liberali vincono immediatamente.</p>
+
+    <h2>Stato partita</h2>
+    <div id="gameStatus" class="status-box">Partita in corso…</div>
+
+    <div class="buttons-row">
+      <button id="nextPresidentBtn">Prossimo Presidente</button>
+      <button id="resetGameBtn" class="danger">Reset</button>
+    </div>
+
+  </section>
+
+  <!-- LOG -->
+  <section id="logSection" class="hidden">
+    <h2>Log eventi</h2>
+    <ul id="logList"></ul>
+  </section>
+
+  <footer>
+    <p class="tiny">
+      Companion non ufficiale per uso personale. Secret Hitler &copy; dei rispettivi autori (CC BY-NC-SA 4.0).
+    </p>
+  </footer>
+
+  <!-- JAVASCRIPT -->
+  <script src="app.js"></script>
+</body>
+</html>
